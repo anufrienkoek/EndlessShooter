@@ -1,4 +1,3 @@
-using _Project.CodeBase.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 

@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eebb98d2-946a-4d70-bf75-d8feefef67fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/AI/BotMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/AI/BotMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/AI/BotShootingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/AI/BotShootingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/MovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/MovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Player/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Player/PlayerMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Player/PlayerShootingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/Player/PlayerShootingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/ShootingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Controllers/ShootingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Core/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Core/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Core/BulletPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Core/BulletPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Inputs/PlayerInputRouter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Inputs/PlayerInputRouter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Interfaces/IMovable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Interfaces/IMovable.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Interfaces/IResettable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Interfaces/IResettable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/CodeBase/Services/GameResetService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/CodeBase/Services/GameResetService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Resouces/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Resouces/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Resouces/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Resouces/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Initial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Initial.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +98,7 @@
       <workItem from="1734556223547" duration="689000" />
       <workItem from="1734674884546" duration="670000" />
       <workItem from="1734675615541" duration="11585000" />
-      <workItem from="1734776053163" duration="3592000" />
+      <workItem from="1734776053163" duration="4013000" />
     </task>
     <servers />
   </component>

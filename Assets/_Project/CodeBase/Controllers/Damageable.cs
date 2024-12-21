@@ -1,7 +1,6 @@
 using _Project.CodeBase.Core;
 using _Project.CodeBase.Services;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Project.CodeBase.Controllers
 {

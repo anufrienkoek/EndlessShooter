@@ -15,12 +15,13 @@ namespace _Project.CodeBase.Controllers.Player
         protected override void Awake()
         {
             base.Awake();
+            
             _characterController = GetComponent<CharacterController>();
             _playerInputRouter = new PlayerInputRouter();
             _playerInputRouter.OnEnable();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             Move(_playerInputRouter.GetMoveInput());
             Rotate(_playerInputRouter.GetRotateInput());
@@ -32,16 +33,16 @@ namespace _Project.CodeBase.Controllers.Player
             _characterController.Move(direction * heroSpeed);
         }
 
-        public override void Rotate(Vector3 angle)
+        private void Rotate(Vector3 angle)
         {
             angle = Vector3.up * angle.x;
             _characterController.transform.Rotate(angle * rotationForce);
         }
 
-        public override void ResetPosition()
+        public override void Reset()
         {
             _characterController.enabled = false;
-            base.ResetPosition();
+            base.Reset();
             _characterController.enabled = true;
         }
     }

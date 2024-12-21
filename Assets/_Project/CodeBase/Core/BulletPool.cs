@@ -1,59 +1,70 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Project.CodeBase.Interfaces;
+using _Project.CodeBase.Services;
 using UnityEngine;
 
 namespace _Project.CodeBase.Core
 {
-    public class BulletPool : MonoBehaviour
+    public class BulletPool : MonoBehaviour, IResettable
     {
-        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private GameResetService gameResetService;
+        [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private int poolSize = 10;
 
-        private Queue<GameObject> bulletPool;
-        private List<GameObject> activeBullets;
+        private Queue<Bullet> _bulletPool;
+        private List<Bullet> _activeBullets;
 
         private void Awake()
         {
-            bulletPool = new Queue<GameObject>();
-            activeBullets = new List<GameObject>();
-
-            for (int i = 0; i < poolSize; i++)
-            {
-                GameObject bullet = Instantiate(bulletPrefab);
-                bullet.SetActive(false);
-                bulletPool.Enqueue(bullet);
-            }
+            _bulletPool = new Queue<Bullet>();
+            _activeBullets = new List<Bullet>();
         }
 
-        public GameObject GetBullet()
+        private void Start()
         {
-            if (bulletPool.Count > 0)
+            for (int i = 0; i < poolSize; i++)
             {
-                GameObject bullet = bulletPool.Dequeue();
-                bullet.SetActive(true);
-                activeBullets.Add(bullet);
+                Bullet bullet = Instantiate(bulletPrefab);
+                bullet.gameObject.SetActive(false);
+                bullet.BulletPool = this;
+                
+                _bulletPool.Enqueue(bullet);
+            }
+            
+            gameResetService.Initialize(this);
+        }
+
+        public Bullet GetBullet()
+        {
+            if (_bulletPool.Count > 0)
+            {
+                Bullet bullet = _bulletPool.Dequeue();
+                bullet.gameObject.SetActive(true);
+                _activeBullets.Add(bullet);
+                
                 return bullet;
             }
 
             return null;
         }
 
-        public void ReturnBullet(GameObject bullet)
+        public void ReturnBullet(Bullet bullet)
         {
-            if (activeBullets.Contains(bullet))
+            if (_activeBullets.Contains(bullet))
             {
-                bullet.SetActive(false);
-                bulletPool.Enqueue(bullet);
-                activeBullets.Remove(bullet);
+                bullet.transform.rotation = Quaternion.identity;
+                bullet.gameObject.SetActive(false);
+                
+                _bulletPool.Enqueue(bullet);
+                _activeBullets.Remove(bullet);
             }
         }
 
-        public void ReturnAllBullets()
+        public void Reset()
         {
-            foreach (var bullet in activeBullets.ToList())
-            {
+            foreach (var bullet in _activeBullets.ToList()) 
                 ReturnBullet(bullet);
-            }
         }
     }
 }

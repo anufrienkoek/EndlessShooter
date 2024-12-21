@@ -1,3 +1,4 @@
+using _Project.CodeBase.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ namespace _Project.CodeBase.Controllers.AI
         protected override void Awake()
         {
             base.Awake();
+            
             _agent = GetComponent<NavMeshAgent>();
         }
 
@@ -29,7 +31,7 @@ namespace _Project.CodeBase.Controllers.AI
             _agent.SetDestination(to);
         }
 
-        public override void Rotate(Vector3 to)
+        public void Rotate(Vector3 to)
         {
             var lookRotation = Quaternion.LookRotation((player.position - _agent.transform.position).normalized);
             _agent.transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime);

@@ -1,43 +1,42 @@
 using _Project.CodeBase.Core;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Project.CodeBase.Controllers
 {
     public abstract class ShootingController : MonoBehaviour
     {
-        [FormerlySerializedAs("objectPool")] [SerializeField] protected BulletPool bulletPool;
+        [SerializeField] protected BulletPool bulletPool;
         [SerializeField] protected Transform pointer;
-        [SerializeField] protected GameObject bulletPrefab;
         [SerializeField] protected float bulletForce;
         
-        protected const float DelayBeforeShoot = 1f;
-        protected float CurrentTime;
+        protected const float ShootCooldown = 1f;
+        protected float TimeSinceLastShot;
 
-        protected virtual void Update() => 
-            CurrentTime += Time.deltaTime;
-        
-        protected void Shoot()
+        protected virtual void Update()
         {
-            GameObject bullet = bulletPool.GetBullet();
+            TimeSinceLastShot += Time.deltaTime;
 
-            if (bullet != null)
+            TryShoot();
+        }
+
+        private void TryShoot()
+        {
+            if (CanShoot())
             {
-                bullet.transform.position = pointer.position;
-                bullet.transform.rotation = pointer.rotation;
-
-                Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-                if (bulletRigidbody != null)
-                {
-                    bulletRigidbody.velocity = Vector3.zero;
-                    bulletRigidbody.angularVelocity = Vector3.zero;
-                    bulletRigidbody.AddForce(pointer.forward * bulletForce, ForceMode.Impulse);
-                }
-                else
-                {
-                    Debug.LogError("Bullet prefab does not have a Rigidbody component!");
-                }
+                Shoot();
+                TimeSinceLastShot = 0;
             }
+        }
+
+        private void Shoot()
+        {
+            Bullet bullet = bulletPool.GetBullet();
+
+            if (bullet == null)
+                return;
+
+            if (bullet.TryGetComponent<Bullet>(out var newBullet)) 
+                newBullet.Initialize(pointer.position, pointer.rotation, pointer.forward * bulletForce);
         }
 
         protected abstract bool CanShoot();

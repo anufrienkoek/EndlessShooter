@@ -1,43 +1,58 @@
 using _Project.CodeBase.Controllers;
+using _Project.CodeBase.Interfaces;
 using _Project.CodeBase.Services;
 using UnityEngine;
 
 namespace _Project.CodeBase.Core
 {
-    public class Bullet : MonoBehaviour
+    [RequireComponent(typeof(Rigidbody))]
+    public class Bullet : MonoBehaviour, IResettable
     {
-        [SerializeField] private float lifeTime = 3f;
+        private const float LifeTime = 3f;
+        
+        private Rigidbody _rigidbody;
+        private float _timer;
 
-        private float timer;
+        public BulletPool BulletPool { get; set; }
+        
+        private void Awake() => 
+            _rigidbody = GetComponent<Rigidbody>();
 
+        public void Initialize(Vector3 position, Quaternion rotation, Vector3 force)
+        {
+            transform.position = position;
+            transform.rotation = rotation;
+
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.AddForce(force, ForceMode.Impulse);
+        }
+        
         private void OnEnable() =>
-            timer = 0f;
+            _timer = 0f;
 
         private void Update()
         {
-            timer += Time.deltaTime;
+            _timer += Time.deltaTime;
 
-            if (timer >= lifeTime)
-                ReturnToPool();
+            if (_timer >= LifeTime)
+                Reset();
         }
 
         private void OnTriggerExit(Collider collision)
         {
-            if (collision.GetComponent<ExitArea>())
-                ReturnToPool();
+            if (collision.TryGetComponent<ExitArea>(out var exitArea))
+                Reset();
         }
-
-        private void ReturnToPool() =>
-            FindObjectOfType<BulletPool>().ReturnBullet(gameObject);
-
-
+        
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<Damageable>(out var damageable))
-            {
-                GameResetService.Instance.ReturnAllBullets();
-            }
+            if (collision.gameObject.TryGetComponent<Damageable>(out var damageable)) 
+                Reset();
         }
+
+        public void Reset() => 
+            BulletPool.ReturnBullet(this);
     }
 }
 

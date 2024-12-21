@@ -1,13 +1,14 @@
 using _Project.CodeBase.Core;
 using _Project.CodeBase.Services;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.CodeBase.Controllers
 {
     public class Damageable : MonoBehaviour
     {
-        [SerializeField] private GameResetService _gameResetService;
-        [SerializeField] private ScoreUI _score;
+        [SerializeField] private GameResetService gameResetService;
+        [SerializeField] private ScoreUI score;
 
         public int Dies { get; private set; }
 
@@ -15,11 +16,11 @@ namespace _Project.CodeBase.Controllers
         {
             var collidedObject = other.gameObject;
 
-            if (collidedObject.GetComponent<Bullet>())
+            if (collidedObject.TryGetComponent<Bullet>(out var bullet))
             {
-                _gameResetService?.ResetAll();
+                gameResetService?.Reset();
                 Dies++;
-                _score?.UpdateScore();
+                score?.UpdateScore();
             }
         }
     }

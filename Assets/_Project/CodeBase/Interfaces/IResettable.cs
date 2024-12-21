@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace _Project.CodeBase.Interfaces
 {
     public interface IResettable
     {
-        void ResetPosition();
+        void Reset();
     }
 }

@@ -12,19 +12,8 @@ namespace _Project.CodeBase.Controllers.Player
             _playerInputRouter.OnEnable();
             _playerInputRouter.Initialize();
         }
-
-        protected override void Update()
-        {
-            base.Update();
-
-            if (CanShoot())
-            {
-                Shoot();
-                CurrentTime = 0;
-            }
-        }
-
+        
         protected override bool CanShoot() =>
-            _playerInputRouter.IsFireButtonPressed() && CurrentTime >= DelayBeforeShoot;
+            _playerInputRouter.IsFireButtonPressed && TimeSinceLastShot >= ShootCooldown;
     }
 }

@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38492ff31f2694745b6c92a71c107fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameResetService: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &5099763572437406045
 MonoBehaviour:
@@ -404,11 +405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e131c3c98d4eadb4d0aed673c02e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botMovementControllerController: {fileID: 0}
-  bulletPrefab: {fileID: 4060233888990493391, guid: 8db393b30fcb70542a2144978abaaf45, type: 3}
+  bulletPool: {fileID: 1271290018752568249}
   pointer: {fileID: 4675456661807494297}
   bulletForce: 6
-  objectPool: {fileID: 1271290018752568249}
 --- !u!114 &3936151888886750349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,8 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb28046338754481b4a882832fba872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameResetService: {fileID: 0}
-  _score: {fileID: 0}
+  gameResetService: {fileID: 0}
+  score: {fileID: 0}
 --- !u!114 &1271290018752568249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4fdccab144481aad09496c1003fd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4060233888990493391, guid: 8db393b30fcb70542a2144978abaaf45, type: 3}
+  gameResetService: {fileID: 0}
+  bulletPrefab: {fileID: -7571685214678189100, guid: 8db393b30fcb70542a2144978abaaf45, type: 3}
   poolSize: 10
 --- !u!1 &5789085959590963147
 GameObject:

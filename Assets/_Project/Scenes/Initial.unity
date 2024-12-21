@@ -1493,20 +1493,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82613b05baddb4112ab7df30f1dee754, type: 3}
---- !u!114 &847319217078168423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895529522214980424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977dafa487d04ca38a4d0fb4bd92dfbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBullets: {fileID: 478410701}
-  enemyBullets: {fileID: 1628503132}
 --- !u!1 &1895529522214980424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5178588878880772520}
-  - component: {fileID: 847319217078168423}
+  - component: {fileID: 5178588878880772521}
   m_Layer: 0
   m_Name: GameResetService
   m_TagString: Untagged
@@ -1539,6 +1525,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5178588878880772521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895529522214980424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977dafa487d04ca38a4d0fb4bd92dfbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8731768608153053817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1552,6 +1550,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 867444947719155737, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 478410701}
+    - target: {fileID: 867444947719155737, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
       propertyPath: bulletForce
       value: 30
       objectReference: {fileID: 0}
@@ -1559,10 +1561,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4792926223255049194, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: -7571685214678189100, guid: 8db393b30fcb70542a2144978abaaf45, type: 3}
+    - target: {fileID: 4792926223255049194, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
     - target: {fileID: 5581090899940992660, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349460648421098312, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: rotationForce
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349460648421098312, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
     - target: {fileID: 8480925735476767912, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.32
@@ -1612,13 +1630,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9152363414498351169, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1470391784}
+    - target: {fileID: 9152363414498351169, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
       propertyPath: _score
       value: 
       objectReference: {fileID: 1470391784}
     - target: {fileID: 9152363414498351169, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
+    - target: {fileID: 9152363414498351169, guid: a2f9191ea49b64741830a0a53f5135e7, type: 3}
       propertyPath: _gameResetService
       value: 
-      objectReference: {fileID: 847319217078168423}
+      objectReference: {fileID: 5178588878880772521}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1632,6 +1658,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1271290018752568249, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
     - target: {fileID: 2253274059744103320, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.76
@@ -1673,13 +1703,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3936151888886750349, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1470391784}
+    - target: {fileID: 3936151888886750349, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
       propertyPath: _score
       value: 
       objectReference: {fileID: 1470391784}
     - target: {fileID: 3936151888886750349, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
+    - target: {fileID: 3936151888886750349, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
       propertyPath: _gameResetService
       value: 
-      objectReference: {fileID: 847319217078168423}
+      objectReference: {fileID: 5178588878880772521}
+    - target: {fileID: 5099763572437406045, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 1628503132}
     - target: {fileID: 5099763572437406045, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
       propertyPath: bulletForce
       value: 30
@@ -1704,6 +1746,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 438037846}
+    - target: {fileID: 7001766405039635845, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
+      propertyPath: gameResetService
+      value: 
+      objectReference: {fileID: 5178588878880772521}
     - target: {fileID: 7599986255263997511, guid: 76808766657df47868a31b1e3f21cf1b, type: 3}
       propertyPath: m_Enabled
       value: 0
